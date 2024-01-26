@@ -1,6 +1,6 @@
 # RAGE GAPPS
 
-<div style="display: flex; align-items: center; justify-content: space-around;">
+<div style="display: flex; align-items: center; justify-content: space-around;" align="center">
 
   <img src="web/ui/img/google.svg" width="40px" height="5%" />
   <img src="web/ui/img/youtube.svg" width="40px" height="5%" />
