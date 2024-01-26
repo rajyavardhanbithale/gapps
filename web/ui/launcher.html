@@ -11,9 +11,16 @@
         rel="stylesheet">
 </head>
 <style>
-    /* * {
-        outline: red solid 1px;
-    } */
+    * {
+        /* outline: red solid 1px; */
+        -webkit-user-select: none;
+        /* Safari */
+        -ms-user-select: none;
+        /* IE 10 and IE 11 */
+        user-select: none;
+        /* Standard syntax */
+       
+    }
 
     .title {
         font-family: 'Major Mono Display', monospace;
@@ -25,7 +32,8 @@
         color: #181c25;
         transition: background 0.2s ease-in-out;
     }
-    .dark-mode{
+
+    .dark-mode {
         background: #181c25;
         color: #f1f1f1;
         transition: background 0.2s ease-in-out;
@@ -33,22 +41,29 @@
     }
 </style>
 
-<body class="dark-mode">
+<body class="dark-mode" oncontextmenu="return false;">
 
-    <div onclick=handleMode()  class="fixed bottom-4 right-4 cursor-pointer p-2 bg-gray-800 text-white rounded-full">
+    <div onclick=handleMode() class="fixed bottom-4 right-4 cursor-pointer p-2 bg-gray-800 text-white rounded-full">
         <svg id="light" class="hidden" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
-            <path class="fill-slate-300" d="M7 0h2v2H7zM12.88 1.637l1.414 1.415-1.415 1.413-1.413-1.414zM14 7h2v2h-2zM12.95 14.433l-1.414-1.413 1.413-1.415 1.415 1.414zM7 14h2v2H7zM2.98 14.364l-1.413-1.415 1.414-1.414 1.414 1.415zM0 7h2v2H0zM3.05 1.706 4.463 3.12 3.05 4.535 1.636 3.12z" />
+            <path class="fill-slate-300"
+                d="M7 0h2v2H7zM12.88 1.637l1.414 1.415-1.415 1.413-1.413-1.414zM14 7h2v2h-2zM12.95 14.433l-1.414-1.413 1.413-1.415 1.415 1.414zM7 14h2v2H7zM2.98 14.364l-1.413-1.415 1.414-1.414 1.414 1.415zM0 7h2v2H0zM3.05 1.706 4.463 3.12 3.05 4.535 1.636 3.12z" />
             <path class="fill-slate-400" d="M8 4C5.8 4 4 5.8 4 8s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4Z" />
         </svg>
         <svg id="dark" class="block" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
-            <path class="fill-slate-400" d="M6.2 1C3.2 1.8 1 4.6 1 7.9 1 11.8 4.2 15 8.1 15c3.3 0 6-2.2 6.9-5.2C9.7 11.2 4.8 6.3 6.2 1Z" />
-            <path class="fill-slate-500" d="M12.5 5a.625.625 0 0 1-.625-.625 1.252 1.252 0 0 0-1.25-1.25.625.625 0 1 1 0-1.25 1.252 1.252 0 0 0 1.25-1.25.625.625 0 1 1 1.25 0c.001.69.56 1.249 1.25 1.25a.625.625 0 1 1 0 1.25c-.69.001-1.249.56-1.25 1.25A.625.625 0 0 1 12.5 5Z" />
+            <path class="fill-slate-400"
+                d="M6.2 1C3.2 1.8 1 4.6 1 7.9 1 11.8 4.2 15 8.1 15c3.3 0 6-2.2 6.9-5.2C9.7 11.2 4.8 6.3 6.2 1Z" />
+            <path class="fill-slate-500"
+                d="M12.5 5a.625.625 0 0 1-.625-.625 1.252 1.252 0 0 0-1.25-1.25.625.625 0 1 1 0-1.25 1.252 1.252 0 0 0 1.25-1.25.625.625 0 1 1 1.25 0c.001.69.56 1.249 1.25 1.25a.625.625 0 1 1 0 1.25c-.69.001-1.249.56-1.25 1.25A.625.625 0 0 1 12.5 5Z" />
         </svg>
+    </div>
+
+    <div class="fixed bottom-0 left-4 cursor-pointer p-2  text-white rounded-full">
+        <img class="ml-0.5 w-14 opacity-40" src="https://avatars.githubusercontent.com/u/111964247?s=200&v=4" alt="">
     </div>
 
     <div class="h-full flex flex-col items-center p-4">
         <div class="mt-auto">
-            <span class="text-5xl font-semibold   title">rAGe gapps</span>
+            <span class="text-5xl font-semibold title">rAGe gapps</span>
         </div>
         <div id="titleElement" class="my-auto flex flex-wrap items-center justify-center mx-auto w-3/4 gap-10">
 
@@ -56,14 +71,16 @@
     </div>
 
     <div class="-mt-12 text-center">
-        <span class="text-lg opacity-35">&#169; Copyright 2024 Rajyavardhan Bithale</span>
+        <span class="text-lg opacity-35">&#169; Copyright 2024 | <a
+                href="https://github.com/rajyavardhanbithale/gapps">GAPPS</a> | <a
+                href="https://github.com/rajyavardhanbithale/">Rajyavardhan Bithale</a></span>
     </div>
 
     <script src="/eel.js"></script>
     <script type="text/javascript" src="./js/launcher.js"></script>
 
     <script>
-        function handleMode(){
+        function handleMode() {
             document.body.classList.toggle('dark-mode')
             const light = document.getElementById("light")
             const dark = document.getElementById("dark")

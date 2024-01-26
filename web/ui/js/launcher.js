@@ -45,5 +45,8 @@ function broadcast(channel) {
 
 function isInternetAvailable() {
     return navigator.onLine;
-    
+}
+
+document.onkeydown = function (e) {
+    return false;
 }
