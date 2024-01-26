@@ -20,7 +20,7 @@
 
 </div>
 
-<div style="display: flex; align-items: center; justify-content: space-around;">
+<div align="center">
     <img src="https://github.com/rajyavardhanbithale/gapps/assets/70558897/1abb811b-86aa-4ac7-8ed1-90ade30184e0" width="600px">
 </div>
 
