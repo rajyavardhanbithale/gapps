@@ -11,7 +11,10 @@ def colorMode(mode):
 @eel.expose
 def avatar(avatar):
     print(avatar)
-    
+   
+@eel.expose
+def browser(browser):
+    print(browser) 
 
 
 eel.start('index.html', size=(960, 580), mode='chrome')  # Set the window size using the 'size' argument

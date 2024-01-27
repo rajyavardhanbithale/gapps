@@ -1,0 +1,131 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<style>
+    .animate-title {
+        margin-top: 2rem;
+        /* animation: moveUp 1s ease-in-out; */
+    }
+
+    @keyframes moveUp {
+        0% {
+            margin-top: 7rem;
+        }
+
+        100% {
+            margin-top: 2rem;
+        }
+
+    }
+
+    /* *{
+        outline: red 1px solid;
+        overflow: hidden;
+    } */
+</style>
+
+<body>
+    <div class="w-full text-center animate-title ">
+        <span class="text-gray-200 text-4xl animate-title capitalize">install your preferred web browser</span>
+    </div>
+
+    <div class="mt-14 w-full flex flex-row items-center justify-center ">
+        <div id="browser-container"
+            class="w-3/4 flex flex-row flex-wrap justify-center align-middle text-center capitalize gap-8">
+
+        </div>
+
+        <!-- <div id="browser-container"
+            class="flex flex-col justify-center align-middle items-center mx-6 my-0 p-4 outline-gray-700 outline rounded-2xl hover:bg-slate-600/25 transition duration-500">
+            <span class="text-gray-300 text-2xl p-2">Brave</span>
+            <img class="w-16 rounded-2xl m-4 drop-shadow-2xl" src="./images/brave.svg">
+        </div> -->
+
+
+
+        <div class="absolute right-8 bottom-6 hidden" id="next">
+            <a onclick="submit()" href="../2_avatar/avatar.html"
+                class="py-2 px-4 rounded-3xl text-white font-semibold bg-gradient-to-r from-red-500 to-orange-500">
+                Proceed >
+            </a>
+        </div>
+
+        <div class="absolute left-8 bottom-6">
+            <a href="../index.html"
+                class="py-2 px-4 rounded-3xl text-white font-semibold bg-gradient-to-r from-red-500 to-orange-500">
+                < Back </a>
+        </div>
+    </div>
+
+
+    <script src="/eel.js"></script>
+    <script>
+        const availableBrowser = ['chrome', 'brave', 'firefox', 'opera', 'vivaldi', 'edge']
+        const browserContainer = document.getElementById("browser-container")
+        const nextButton = document.getElementById('next')
+        let installList = [];
+
+        function removeItemFromArray(array, itemToRemove) {
+            const indexToRemove = array.indexOf(itemToRemove);
+            if (indexToRemove !== -1) {
+                array.splice(indexToRemove, 1);
+            } 
+        }
+
+        const element = availableBrowser.map(item => {
+            const container = document.createElement('div')
+            container.classList.add("mx-6", "my-0", 'p-4', 'outline-gray-700', 'outline', 'rounded-2xl', 'hover:bg-slate-600/25', 'transition', 'duration-500')
+
+            const title = document.createElement('span')
+            title.classList.add("text-gray-300", "text-2xl", "p-2")
+            title.textContent = item
+
+            const img = document.createElement('img')
+            img.classList.add("w-16", "rounded-2xl", "m-4", "drop-shadow-2xl", "ml-5")
+            img.src = `./images/${item}.svg`
+
+            container.append(title)
+            container.append(img)
+
+            container.addEventListener('click', function () {
+                container.classList.toggle('outline-gray-400')
+
+                if (installList.includes(item)) {
+                    removeItemFromArray(installList, item)
+                }else{
+                    installList.push(item)
+                }
+
+                if(installList.length > 0){
+                    nextButton.classList.remove("hidden")
+                    nextButton.classList.add("block")
+                }else{
+                    nextButton.classList.add("hidden")
+                    nextButton.classList.remove("block")
+                }
+                
+            })
+
+
+
+            return container
+        })
+
+        element.forEach(elem => {
+            browserContainer.appendChild(elem);
+        });
+
+        function submit() {
+            eel.browser(installList)
+        }
+    </script>
+
+</body>
+
+</html>
