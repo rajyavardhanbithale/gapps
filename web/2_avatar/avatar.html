@@ -1,0 +1,119 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<style>
+    .animate-title {
+        margin-top: 2rem;
+        /* animation: moveUp 1s ease-in-out; */
+    }
+
+    @keyframes moveUp {
+        0% {
+            margin-top: 7rem;
+        }
+
+        100% {
+            margin-top: 2rem;
+        }
+
+    }
+
+    /* *{
+        outline: red 1px solid;
+        overflow: hidden;
+    } */
+</style>
+
+<body>
+    <div class="w-full text-center animate-title ">
+        <span class="text-gray-200 text-4xl animate-title capitalize">Select your Avatar</span>
+    </div>
+
+    <div class="mt-14 w-full flex flex-row items-center justify-center ">
+        <div id="image-container" class="flex flex-wrap gap-5 justify-center align-middle w-[90%]">
+            <img onclick="highlightImage(this)"
+                class="w-32 h-32 object-cover rounded-full hover:border hover:scale-110 hover:border-gray-600 transition duration-700"
+                src="images/webp/man1.webp">
+            <img onclick="highlightImage(this)"
+                class="w-32 h-32 object-cover rounded-full hover:border hover:scale-110 hover:border-gray-600 transition duration-700"
+                src="images/webp/man2.webp">
+            <img onclick="highlightImage(this)"
+                class="w-32 h-32 object-cover rounded-full hover:border hover:scale-110 hover:border-gray-600 transition duration-700"
+                src="images/webp/man3.webp">
+            <img onclick="highlightImage(this)"
+                class="w-32 h-32 object-cover rounded-full hover:border hover:scale-110 hover:border-gray-600 transition duration-700"
+                src="images/webp/man4.webp">
+            <img onclick="highlightImage(this)"
+                class="w-32 h-32 object-cover rounded-full hover:border hover:scale-110 hover:border-gray-600 transition duration-700"
+                src="images/webp/neutral1.webp">
+            <img onclick="highlightImage(this)"
+                class="w-32 h-32 object-cover rounded-full hover:border hover:scale-110 hover:border-gray-600 transition duration-700"
+                src="images/webp/neutral2.webp">
+            <img onclick="highlightImage(this)"
+                class="w-32 h-32 object-cover rounded-full hover:border hover:scale-110 hover:border-gray-600 transition duration-700"
+                src="images/webp/neutral3.webp">
+            <img onclick="highlightImage(this)"
+                class="w-32 h-32 object-cover rounded-full hover:border hover:scale-110 hover:border-gray-600 transition duration-700"
+                src="images/webp/women1.webp">
+            <img onclick="highlightImage(this)"
+                class="w-32 h-32 object-cover rounded-full hover:border hover:scale-110 hover:border-gray-600 transition duration-700"
+                src="images/webp/women2.webp">
+            <img onclick="highlightImage(this)"
+                class="w-32 h-32 object-cover rounded-full hover:border hover:scale-110 hover:border-gray-600 transition duration-700"
+                src="images/webp/women3.webp">
+            <img onclick="highlightImage(this)"
+                class="w-32 h-32 object-cover rounded-full hover:border hover:scale-110 hover:border-gray-600 transition duration-700"
+                src="images/webp/women4.webp">
+
+        </div>
+        <div class="absolute right-8 bottom-6 hidden" id="next">
+            <a onclick="submit()" href="../2_avatar/avatar.html" class="py-2 px-4 rounded-3xl text-white font-semibold bg-gradient-to-r from-red-500 to-orange-500">
+                Proceed >
+            </a>
+        </div>
+
+        <div class="absolute left-8 bottom-6">
+            <a href="../1_theme/theme.html" class="py-2 px-4 rounded-3xl text-white font-semibold bg-gradient-to-r from-red-500 to-orange-500">
+                < Back
+            </a>
+        </div>
+    </div>
+
+
+    <script src="/eel.js"></script>
+    <script>
+        let selectedImage = null;
+        const nextButton = document.getElementById("next")
+        let avatar;
+        function highlightImage(element) {
+            
+            if (selectedImage !== null) {
+                selectedImage.classList.remove('border-blue-100','border-[4px]');
+  
+            }
+            if(element){
+                nextButton.classList.remove("hidden")
+                nextButton.classList.add("block")
+                
+                avatar = (element.src).split('/');
+            }
+    
+           
+            selectedImage = element;
+            selectedImage.classList.add('border-blue-100','border-[4px]');
+            
+        }
+        function submit(){
+            eel.avatar(avatar[avatar.length - 1]);
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,109 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<style>
+    .animate-title {
+        margin-top: 2rem;
+        /* animation: moveUp 1s ease-in-out; */
+    }
+
+    @keyframes moveUp {
+        0% {
+            margin-top: 7rem;
+        }
+
+        100% {
+            margin-top: 2rem;
+        }
+
+    }
+
+    /* *{
+        outline: red 1px solid;
+        overflow: hidden;
+    } */
+</style>
+
+<body>
+    <div class="w-full text-center animate-title ">
+        <span class="text-gray-200 text-4xl animate-title capitalize">Select your preferred color mode</span>
+    </div>
+
+    <div class="mt-20 w-full flex flex-row items-center justify-center ">
+        <div class="w-1/2 flex flex-col justify-center align-middle items-center mx-6 my-0 p-4 outline-gray-700 outline rounded-2xl hover:bg-slate-600/25 transition duration-500"
+            onclick="selectMode('dark')" id="dark">
+            <span class="text-gray-300 text-2xl p-2">Dark</span>
+            <img class="w-96 rounded-2xl m-4 mb-8 drop-shadow-2xl"
+                src="https://user-images.githubusercontent.com/56817415/213473368-16931b70-fd84-4a89-a698-1b1bca1f82de.png"
+                alt="">
+        </div>
+
+        <div class="w-1/2 flex flex-col justify-center align-middle items-center mx-6 my-0 p-4 outline-gray-700 outline rounded-2xl hover:bg-slate-600/25 transition duration-500"
+            onclick="selectMode('light')" id="light">
+            <span class="text-gray-200 text-2xl p-2">Light</span>
+            <img class="w-96 rounded-2xl m-4 mb-8 drop-shadow-2xl"
+                src="https://user-images.githubusercontent.com/56817415/213473391-603bdc68-68f4-4877-a15a-b469040928b5.png"
+                alt="">
+        </div>
+        <div class="absolute right-8 bottom-6 hidden" id="next">
+            <a onclick="submit()" href="../2_avatar/avatar.html" class="py-2 px-4 rounded-3xl text-white font-semibold bg-gradient-to-r from-red-500 to-orange-500">
+                Proceed >
+            </a>
+        </div>
+        
+        <div class="absolute left-8 bottom-6">
+            <a href="../index.html" class="py-2 px-4 rounded-3xl text-white font-semibold bg-gradient-to-r from-red-500 to-orange-500">
+                < Back
+            </a>
+        </div>
+    </div>
+
+
+    <script src="/eel.js"></script>
+    <script>
+        const dark = document.getElementById("dark")
+        const light = document.getElementById("light")
+        const nextButton = document.getElementById("next")
+
+        const selectedClass = "outline-gray-300"
+
+        let colorMode;
+
+        function selectMode(mode) {
+            colorMode = mode
+            if (mode === 'dark') {
+                dark.classList.remove("outline-gray-700")
+                dark.classList.add(selectedClass)
+
+                light.classList.add("outline-gray-700")
+                light.classList.remove(selectedClass)
+
+                nextButton.classList.remove("hidden")
+                nextButton.classList.add("block")
+
+            }
+            if (mode === 'light') {
+                light.classList.remove("outline-gray-700")
+                light.classList.add(selectedClass)
+
+                dark.classList.add("outline-gray-700")
+                dark.classList.remove(selectedClass)
+                
+                nextButton.classList.remove("hidden")
+                nextButton.classList.add("block")
+            }
+        }
+        function submit(){
+            eel.colorMode(colorMode)
+        }
+    </script>
+
+</body>
+
+</html>

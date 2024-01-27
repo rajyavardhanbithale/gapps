@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2&family=Major+Mono+Display&family=Poppins&family=Raleway&display=swap');
+
+body{
+    font-family: 'Raleway',sans-serif;
+    background: #181c25;
+}
+
+.brand-font{
+    /* font-family: 'Major Mono Display',monospace; */
+    font-family: 'Major Mono Display',monospace;
+}
