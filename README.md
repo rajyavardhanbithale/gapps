@@ -62,7 +62,8 @@ This application is designed to serve as a launcher for Google applications. It 
 
 1. Clone the repository: `git clone https://github.com/rajyavardhanbithale/gapps`
 2. Navigate to the project directory: `cd gapps`
-3. Run the application: `python main.py`
+3. Install dependency `pip install -r requirements.txt`
+4. Run the application: `python3 main.py` 
 
 The application will launch, and you can start using it to quickly access your favorite Google applications.
 
