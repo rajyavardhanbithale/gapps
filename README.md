@@ -74,4 +74,6 @@ The application will launch, and you can start using it to quickly access your f
 
 Contributions are welcome! If you have suggestions, improvements, or bug fixes, feel free to open an issue or submit a pull request.
 
-
+## To Be Implemented
+1. Update from Google Chrome to electron.js
+2. Add app icon to every application instances 
