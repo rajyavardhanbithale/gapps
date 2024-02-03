@@ -29,6 +29,7 @@
 This application is designed to serve as a launcher for Google applications. It allows users to quickly launch their preferred Google applications without typing in the search bar. The application uses Python on the server side with the Eel module, and it communicates with the client side to handle application launch requests.
 
 ### LINUX only
+### Windows binary soon
 
 ## Technologies Used
 
