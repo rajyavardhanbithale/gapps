@@ -78,4 +78,3 @@ Contributions are welcome! If you have suggestions, improvements, or bug fixes, 
 1. Update from Google Chrome to electron.js.
 2. Add app icon to every application instances.
 3. Add more themes.
-4. Compiled application 
